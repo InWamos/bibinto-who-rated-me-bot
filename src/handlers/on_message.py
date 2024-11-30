@@ -8,7 +8,7 @@ async def on_bibinto_message(client: Client, message: Message) -> None:
 
     if isinstance(reply_markup, InlineKeyboardMarkup):
         message_keyboard = reply_markup.inline_keyboard[0][0]
-        print(message_keyboard.text, type(message_keyboard))
+
         if "Оценить" in message_keyboard.text:
             await asyncio.sleep(1)
             await message.click(0)
