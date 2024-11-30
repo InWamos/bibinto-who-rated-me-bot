@@ -3,6 +3,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup
 from pyrogram.client import Client
 from random import randint
 
+
 async def on_bibinto_message(client: Client, message: Message) -> None:
     reply_markup = message.reply_markup
 

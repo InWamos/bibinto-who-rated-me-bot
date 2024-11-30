@@ -5,6 +5,7 @@ from pyrogram.client import Client
 
 BIBINTO_ID = os.getenv("BIBINTO_ID")
 
+
 # For example, in a MessageHandler the update argument will be a Message;
 # in a CallbackQueryHandler the update will be a CallbackQuery
 async def check_pm_is_bibinto(_: object, __: Client, query: Message) -> bool:
