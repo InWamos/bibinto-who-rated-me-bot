@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram.types import Message, InlineKeyboardMarkup
 from pyrogram.client import Client
-
+from random import randint
 
 async def on_bibinto_message(client: Client, message: Message) -> None:
     reply_markup = message.reply_markup
@@ -18,4 +18,5 @@ async def on_bibinto_message(client: Client, message: Message) -> None:
             )
             await asyncio.sleep(1)
             if isinstance(new_message, Message):
-                await new_message.click(3, 1)
+                random_rating: int = randint(7, 10)
+                await new_message.click(random_rating)
