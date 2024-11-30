@@ -1,5 +1,5 @@
 import asyncio
-import pyrogram
+from pyrogram import sync
 from pathlib import Path
 from pyrogram.client import Client
 
@@ -11,10 +11,11 @@ async def main() -> None:
     apps: list[Client] = []
     for session_file in session_files:
         app = Client(str(session_file.stem), workdir="data/sessions/")
+        # app.add_handler()
         apps.append(app)
 
     if apps:
-        pyrogram.sync.compose(apps)
+        sync.compose(apps)
 
 
 if __name__ == "__main__":
