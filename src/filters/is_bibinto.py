@@ -1,6 +1,6 @@
 import os
 
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup
 from pyrogram.client import Client
 
 BIBINTO_ID = os.getenv("BIBINTO_ID")
@@ -8,7 +8,7 @@ BIBINTO_ID = os.getenv("BIBINTO_ID")
 
 # For example, in a MessageHandler the update argument will be a Message;
 # in a CallbackQueryHandler the update will be a CallbackQuery
-async def check_pm_is_bibinto(_: object, __: Client, query: Message) -> bool:
+async def check_pm_is_rate_message(_: object, __: Client, query: Message) -> bool:
     """Filter to validate that the message from Bibinto bot
 
     Args:
@@ -17,10 +17,7 @@ async def check_pm_is_bibinto(_: object, __: Client, query: Message) -> bool:
         query (_type_): Message
     """
     if BIBINTO_ID:
-        return (
-            not query.from_user.is_self
-            and query.from_user.is_bot
-            and query.from_user.id == int(BIBINTO_ID)
-        )
+        if isinstance(query.reply_markup, InlineKeyboardMarkup):
+            return True
 
     return False
