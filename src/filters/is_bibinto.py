@@ -3,7 +3,7 @@ import os
 from pyrogram.types import Message, InlineKeyboardMarkup
 from pyrogram.client import Client
 
-BIBINTO_ID = os.getenv("BIBINTO_ID")
+BIBINTO_BOT_NICKNAME = os.getenv("BIBINTO_BOT_NICKNAME")
 
 
 # For example, in a MessageHandler the update argument will be a Message;
@@ -16,7 +16,7 @@ async def check_pm_is_rate_message(_: object, __: Client, query: Message) -> boo
         __ (_type_): client
         query (_type_): Message
     """
-    if BIBINTO_ID:
+    if BIBINTO_BOT_NICKNAME:
         if isinstance(query.reply_markup, InlineKeyboardMarkup):
             return True
 
