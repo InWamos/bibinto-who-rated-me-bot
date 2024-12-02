@@ -13,8 +13,8 @@ from datetime import datetime, timedelta, timezone
 
 async def main() -> None:
     load_dotenv()
-    BIBINTO_ID = os.getenv("BIBINTO_ID")
-    if not BIBINTO_ID:
+    BIBINTO_BOT_NICKNAME = os.getenv("BIBINTO_BOT_NICKNAME")
+    if not BIBINTO_BOT_NICKNAME:
         return
 
     sessions_folder = Path("data/sessions")
@@ -32,7 +32,7 @@ async def main() -> None:
                 seconds=20
             )
             await app.send_message(
-                chat_id=BIBINTO_ID,
+                chat_id=BIBINTO_BOT_NICKNAME,
                 text="/start",
                 schedule_date=first_message_scheduled_date,
             )
