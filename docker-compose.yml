@@ -1,0 +1,13 @@
+services:
+
+  bibinto-who-rated-me:
+    build:
+      context: .
+    restart: no
+    container_name: bibinto-who-rated-me
+    volumes:
+      - .:/app
+    working_dir: /app 
+    command: /venv/bin/python src/__main__.py
+    env_file:
+      - .env
