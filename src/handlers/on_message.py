@@ -14,7 +14,7 @@ async def on_rate_message(client: Client, message: Message) -> None:
         message_keyboard = reply_markup.inline_keyboard[0][0]
 
         if "⭐️Оценить" == message_keyboard.text:
-            try: 
+            try:
                 print("yes")
                 await asyncio.sleep(1)
                 await message.click(0)
@@ -33,5 +33,7 @@ async def on_rate_message(client: Client, message: Message) -> None:
 async def on_start_message(client: Client, message: Message) -> None:
     if MAX_CAP:
         for _ in range(int(MAX_CAP)):
-            await client.send_message(chat_id=message.chat.id, text="⭐️Кто меня оценил?")
+            await client.send_message(
+                chat_id=message.chat.id, text="⭐️Кто меня оценил?"
+            )
             await asyncio.sleep(5)
